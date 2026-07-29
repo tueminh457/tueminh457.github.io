@@ -1,0 +1,2054 @@
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('fonts/AppleGaramond.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('fonts/AppleGaramond-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('fonts/AppleGaramond-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('fonts/AppleGaramond-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('fonts/AppleGaramond-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('fonts/AppleGaramond-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'MonsieurLaDoulaise';
+  src: url('fonts/MonsieurLaDoulaise.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'AppleGaramond', serif;
+}
+
+.regular {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.light {
+  font-weight: 300;
+  font-style: normal;
+}
+
+.light-italic {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.italic {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.bold {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.bold-italic {
+  font-weight: 700;
+  font-style: italic;
+}
+
+:root {
+  --cursor-size: 36px;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: antiquewhite;
+  min-height: 100vh;
+  font-family: 'AppleGaramond', serif;
+  margin: 0;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+
+
+/*===========CURSOR===========*/
+
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor.is-hidden {
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+
+.custom-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    pointer-events: none;
+    z-index: 2147483647;
+
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    overflow: visible;
+
+    transition:
+        opacity .18s ease,
+        transform .18s ease;
+
+    mix-blend-mode: screen;
+}
+
+.cursor-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+
+    transition:
+        transform .18s ease,
+        filter .18s ease,
+        opacity .18s ease;
+}
+
+.custom-cursor.is-hover .cursor-img {
+    content: url("Asset/cursor-hover.svg");
+
+    transform: scale(3);
+    opacity: 0.75;
+
+    filter:
+        drop-shadow(0 0 3px rgba(255,200,220,.25));
+}
+
+* {
+  font-family: 'AppleGaramond', serif;
+}
+
+
+
+/*===========TITLE PAGE===========*/
+/*=====title page background=====*/
+
+
+.title-page {
+  position: relative;
+  width: 100%;
+  height: calc(100vh + 500px);
+  z-index: 3;
+    --title-fade: 0;
+    --mask-reach: 0;
+}
+
+.title-page-wrapper {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  --title-fade: 0;
+  transition: opacity 0.45s ease;
+  will-change: opacity;
+  opacity: calc(1 - var(--title-fade));
+
+    -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) calc(100% - var(--mask-reach) * 70%),
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) calc(100% - var(--mask-reach) * 70%),
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.title-image {
+  position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    visibility: visible;
+    z-index: 0;
+
+    transition: opacity .4s ease;
+}
+
+.title-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  object-position: right center;
+  pointer-events: none;
+  display: block;
+}
+
+.title-layer1 /*swirl*/{
+  z-index: 2;
+  mix-blend-mode: hard-light;
+  margin-top: 350px;
+  top: 20%;
+  right: 0;
+  width: 50%;
+  height: 50%;
+}
+
+.title-layer2 /*flower*/{
+  z-index: 3;
+  mix-blend-mode: multiply;
+  margin-top: 400px;
+  top: 10%;
+  right: 0;
+  width: 40%;
+  height: 40%;
+}
+
+.text-ani { /*first love late spring text*/
+  position: absolute;
+  inset: 0;
+  top: 30%;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  pointer-events: none;
+  opacity: 0.75;
+  display: block;
+  margin-left: auto;
+  margin-right: 100px;
+    --scroll-fade: 0;
+    opacity: var(--scroll-fade);
+    transition: opacity 0.1s linear;
+}
+
+
+.text-ani2 /*swirl*/{
+  z-index: 3;
+  width: 60%;
+  height: 60%;
+  margin-right: 50px;
+  margin-top: -40px;
+  opacity: 0;
+  clip-path: ellipse(0% 0% at 50% 50%);
+  filter: blur(6px);
+  transition: opacity 0.8s ease, clip-path 0.8s ease, filter 0.8s ease;
+}
+
+.text-ani1 /*title*/ {
+  z-index: 4;
+  pointer-events: none;
+  width: 50%;
+  height: 50%;
+  margin-right: 120px;
+  margin-top: 10px;
+  opacity: calc(var(--scroll-fade) * 0.75);
+}
+
+.text-ani1.is-revealed {
+  pointer-events: auto;
+}
+
+.text-ani1:hover + .text-ani2 {
+  opacity: 0.5;
+  clip-path: ellipse(100% 100% at 50% 50%);
+  filter: blur(0);
+}
+
+.text-ani,
+.title-layer1,
+.title-layer2 {
+  will-change: transform;
+  transform: translateY(calc(var(--parallax-y, 0px)));
+}
+
+
+
+/*=====SOUND BUTTON=====*/
+
+.sound-button{
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  width: 120px;
+  height: 120px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2147483647;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sound-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.2s ease;
+}
+.bottom-img {
+  width: 130%;
+  height: 50%;
+}
+.sound-label {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: #000000;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.5s ease-in, text-shadow 0.2s ease;
+}
+
+.sound-button:hover .sound-label {
+  opacity: 1;
+  text-shadow: 0 0 5px #ececec, 0 0 10px #ececec, 0 0 20px #ececec, 0 0 40px #ececec;
+}
+.top-img {
+  opacity: 0.25;
+}
+.bottom-img {
+  opacity: 0;
+}
+.sound-button:hover .top-img {
+  opacity: 0;
+}
+.sound-button:hover .bottom-img {
+  opacity: 0.5;
+}
+.sound-button:not(:hover) .top-img {
+  opacity: 0.25;
+}
+.sound-button:not(:hover) .bottom-img {
+  opacity: 0;
+}
+
+
+
+/*===========PAGE 1===========*/
+/*=====PAGE 1 background=====*/
+.text-page1{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    
+}
+.text-page1 img{
+    position: absolute;
+    pointer-events: auto;
+}
+
+
+.text-page1-1{
+    left: 15vw;
+    top: 10vh;
+    width: 20vw;
+}
+
+.text-page1-2{
+    right: 15vw;
+    top: 30vh;
+    width: 22vw;
+}
+
+.text-page1-3{
+    left: 40vw;
+    bottom: 12vh;
+    width: 20vw;
+}
+
+.text-page1-1:hover, .text-page1-2:hover, .text-page1-3:hover {
+    filter: brightness(150%) blur(1px);
+}
+
+.page1 {
+  position: relative;
+  z-index: 2;
+  margin-top: -75vh;
+  height: 250vh;
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  --title-fade: 0;
+  will-change: opacity, transform;
+  opacity: calc(1 - var(--title-fade));
+}
+
+.page1-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 55%,
+    rgba(0,0,0,0.75) 75%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 55%,
+    rgba(0,0,0,0.75) 75%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.page1.is-visible {
+  opacity: 0.75;
+  transform: translateY(0);
+}
+
+.page1-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('Asset/page1-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 1;
+}
+
+.page1-window {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  z-index: 3;
+  width: min(50vw, 50vh);
+  max-width: 50%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: auto;
+  display: block;
+  transform: translate(-50%, -50%) translateY(10px);
+}
+
+.page1-hole {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  z-index: 6;
+  width: 400%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  display: block;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  will-change: width, opacity, transform;
+}
+
+.page1-video {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+  transition: opacity 0.6s linear;
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.page1-bg,
+.page1-video,
+.page1-window {
+    transform:translateY(10px);
+    transition:
+        opacity .6s ease,
+        transform .8s ease;
+}
+
+
+/*===========PAGE 2===========*/
+
+
+.text-page2{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    
+}
+.text-page2 img{
+    position: absolute;
+    pointer-events: auto;
+    opacity: 0;
+     animation-name: textFadeIn;
+    animation-duration: 1s;       
+    animation-fill-mode: both;
+    animation-timeline: --page2;
+    animation-timing-function: linear;
+}
+
+
+.text-page2-1{
+    left: 10vw;
+    top: 10vh;
+    width: 25vw;
+     animation-range: entry 50% cover 75%;
+}
+
+.text-page2-2{
+    right: 15vw;
+    top: 20vh;
+    width: 25vw;
+    animation-range: entry 65% cover 80%;
+}
+
+.text-page2-3{
+    left: 60vw;
+    bottom: 8vh;
+    width: 22vw;
+     animation-range: entry 80% cover 90%;
+}
+
+.text-page2-1:hover, .text-page2-2:hover, .text-page2-3:hover {
+    filter: brightness(250%) blur(1px);
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.page2 {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 250vh;
+  background: #f5e6d1;
+  isolation: auto;
+  margin-top: -100vh;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+  top: 0;
+
+  view-timeline-name: --page2;
+  view-timeline-axis: block;
+}
+.page2-sticky{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+
+      -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 55%,
+    rgba(0,0,0,0.75) 75%,
+    rgba(0,0,0,0) 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 55%,
+    rgba(0,0,0,0.75) 75%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.page2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28vh;
+  pointer-events: none;
+  z-index: 6;
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 230, 209, 0) 0%,
+    rgba(245, 230, 209, 0.25) 40%,
+    rgba(245, 230, 209, 0.75) 75%,
+    rgba(245, 230, 209, 1) 100%
+  );
+}
+
+.page2-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page2-sakura-frame {
+  position: absolute;
+  left: 10%;
+  top: 0%;
+  width: 50%;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+    animation: sakuraSlide 0.5s ease-in-out forwards;
+    animation-timeline: --page2;
+    animation-range: entry 50% cover 60%;
+}
+
+@keyframes sakuraSlide {
+    from {
+        transform: translateY(1000px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.page2-envelope1 {
+  position: absolute;
+  right: 20%;
+  top: 40%;
+  width: 30%;
+  height: auto;
+  z-index: 3;
+  animation: envelopeSlide 0.5s ease-in-out forwards;
+    animation-timeline: --page2;
+    animation-range: entry 70% cover 80%;
+  cursor: pointer;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.page2-envelope1.is-hidden {
+  opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@keyframes envelopeSlide {
+    from {
+        transform: translateY(500px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.page2-envelope2 {
+  position: absolute;
+  right: 20%;
+  top: 27%;
+  width: 30%;
+  height: auto;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease;
+}
+
+.page2-envelope2.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+
+.page2-petal {
+  position: absolute;
+  left: 45%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  height: auto;
+  z-index: 4;
+  pointer-events: none;
+  animation: petalSlide 0.5s ease-in-out forwards;
+    animation-timeline: --page2;
+    animation-range: entry 90% cover 100%;
+  cursor: pointer;
+  transition: transform 0.35s ease;
+}
+
+@keyframes petalSlide {
+    0% {
+        transform: translate(-50%, -500px) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(calc(-50% - 40px), -350px) rotate(-15deg);
+    }
+
+    50% {
+        transform: translate(calc(-50% + 30px), -200px) rotate(10deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+
+.page2-layer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: auto;
+  opacity: 0.75;
+  mix-blend-mode: hard-light;
+  z-index: 3;
+  pointer-events: none;
+}
+.page2-texture{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 5;
+  transform: scaleX(-1);
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+
+
+
+/*===========PAGE 3 and PAGE 4===========*/
+
+.text-page3{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    
+}
+.text-page3 img{
+    position: absolute;
+    pointer-events: auto;
+    opacity: 0;
+     animation-name: textFadeInOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timeline: --page3;
+    animation-timing-function: linear;
+}
+
+@keyframes textFadeInOut {
+    0%   { opacity: 0; }
+    50%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes textInvert {
+    0%   { filter: invert(90%); }
+    100% { filter: invert(100%); }
+}
+
+.text-page3-1{
+    left: 15vw; top: 15vh; width: 25vw;
+    animation-range: entry 0% cover 50%;
+}
+.text-page3-2{
+    left: 15vw; top: 40vh; width: 15vw;
+    animation-range: entry 15% cover 50%;
+}
+.text-page3-3{
+    left: 30vw; bottom: 15vh; width: 22vw;
+    animation-range: entry 20% cover 50%;
+}
+.text-page3-4{
+    right: 10vw; top: 40vh; width: 20vw;
+    animation-range: entry 20% cover 50%;
+}
+.text-page3 .text-page3-5{
+    left: 10vw; top: 20vh; width: 25vw;
+    animation-name: textFadeInOut, textInvert;
+    animation-duration: 1s, 1s;
+    animation-timeline: --page3, --page3;
+    animation-range: cover 50% cover 100%, cover 50% cover 100%;
+    animation-fill-mode: both, both;
+    animation-timing-function: linear, linear;
+}
+
+.text-page3 .text-page3-6{
+    right: 10vw; top: 30vh; width: 20vw;
+    animation-name: textFadeInOut, textInvert;
+    animation-duration: 1s, 1s;
+    animation-timeline: --page3, --page3;
+    animation-range: cover 55% cover 100%, cover 55% cover 100%;
+    animation-fill-mode: both, both;
+    animation-timing-function: linear, linear;
+}
+
+.text-page3 .text-page3-7{
+    left: 40vw; bottom: 40vh; width: 8vw;
+    animation-name: textFadeInOut, textInvert;
+    animation-duration: 1s, 1s;
+    animation-timeline: --page3, --page3;
+    animation-range: cover 60% cover 100%, cover 60% cover 100%;
+    animation-fill-mode: both, both;
+    animation-timing-function: linear, linear;
+}
+
+.text-page3 .text-page3-8{
+    left: 20vw; bottom: 12vh; width: 25vw;
+    animation-name: textFadeInOut, textInvert;
+    animation-duration: 1s, 1s;
+    animation-timeline: --page3, --page3;
+    animation-range: cover 65% cover 100%, cover 65% cover 100%;
+    animation-fill-mode: both, both;
+    animation-timing-function: linear, linear;
+}
+
+.text-page3-1:hover, .text-page3-2:hover, .text-page3-3:hover, .text-page3-4:hover, .text-page3-5:hover, .text-page3-6:hover, .text-page3-7:hover, .text-page3-8:hover {
+    filter: blur(2px);
+}
+
+.page3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    #f5e6d1 0%,
+    rgba(245,230,209,0.8) 25%,
+    rgba(245,230,209,0) 70%
+  );
+
+  opacity: 1;
+
+  animation: page3TopFade linear both;
+  animation-timeline: --page3;
+  animation-range: entry 0% cover 35%;
+}
+
+
+@keyframes page3TopFade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.page3 {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 350vh;
+  background: #f5e6d1;
+  overflow: visible;
+
+    view-timeline-name: --page3;
+    view-timeline-axis: block;
+}
+.page3-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.page3-wave1 { /*above*/
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+
+    animation: wave1Move linear both;
+    animation-timeline: --page3;
+    animation-range: entry 20% cover 100%;
+}
+
+.page3-wave2 { /*below*/
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+   position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    animation: wave2Move linear both;
+    animation-timeline: --page3;
+    animation-range: entry 50% cover 100%;
+}
+
+@keyframes wave1Move {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-700px);
+    }
+}
+
+@keyframes wave2Move {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-1200px);
+    }
+}
+
+.page3-video{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  max-width: none;
+  object-fit: cover;
+  mix-blend-mode: overlay;
+  opacity: 0.75;
+  transition: opacity 0.6s linear;
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.page3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 80vh;
+
+  z-index: 50;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.5) 50%,
+    #000 100%
+  );
+
+  opacity: 0;
+
+  animation: page3ToBlack linear both;
+  animation-timeline: --page3;
+  animation-range: exit 20% exit 100%;
+}
+
+
+@keyframes page3ToBlack {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+/*===========PAGE 5===========*/
+.text-page5{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    
+}
+
+.text-page5 img{
+    position: absolute;
+    pointer-events: auto;
+    animation-name: textFadeInOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timeline: --page5;
+    animation-timing-function: linear;
+}
+
+@keyframes textFadeInOut {
+    0%   { opacity: 0; transform: translateY(0px); }
+    50%  { opacity: 1; transform: translateY(-30px); }
+    100% { opacity: 0; transform: translateY(-60px); }
+}
+
+.text-page5-1{
+    left: 10vw; top: 10vh; width: 25vw;
+    animation-range: entry 0% cover 50%;
+}
+.text-page5-2{
+    right: 15vw; top: 35vh; width: 18vw;
+    animation-range: entry 15% cover 50%;
+}
+
+.text-page5-3{
+    left: 35vw; bottom: 10vh; width: 30vw;
+    animation-range: entry 30% cover 50%;
+}
+
+.text-page5 .text-page5-4{
+    left: 10vw; top: 15vh; width: 25vw;
+    animation-name: textFadeInOut;
+    animation-duration: 1s;
+    animation-timeline: --page5;
+    animation-range: cover 50% cover 65%;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+.text-page5 .text-page5-5{
+    right: 10vw; top: 40vh; width: 25vw;
+    animation-name: textFadeInOut;
+    animation-duration: 1s, 1s;
+    animation-timeline:  --page5;
+    animation-range:  cover 60% cover 70%;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+.text-page5 .text-page5-6{
+    left: 20vw; top: 13vh; width: 12vw;
+    animation-name: textFadeInOut;
+    animation-duration: 1s;
+    animation-timeline: --page5;
+    animation-range: cover 70% cover 90%;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+.text-page5 .text-page5-7{
+    right: 28vw; top: 33vh; width: 7vw;
+    animation-name: textFadeInOut;
+    animation-duration:  1s;
+    animation-timeline: --page5;
+    animation-range: cover 72% cover 90%;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+}
+
+.text-page5-1:hover, .text-page5-2:hover, .text-page5-3:hover, .text-page5-4:hover, .text-page5-5:hover, .text-page5-6:hover, .text-page5-7:hover {
+    filter: brightness(250%) blur(1px);
+}
+
+.page5::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+
+  background: #000;
+
+  animation: page5Reveal linear both;
+  animation-timeline: --page5;
+  animation-range: entry 0% cover 25%;
+}
+
+@keyframes page5Reveal {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.page5 {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 400vh;
+  overflow: visible;
+  background: #f5e6d1;
+
+   view-timeline-name: --page5;
+    view-timeline-axis: block;
+}
+.page5-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.page5-sticky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  opacity: var(--page5-mask-opacity, 0);
+}
+.page5-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+  animation: bgMove linear both;
+    animation-timeline: --page5;
+    animation-range: entry 0% cover 100%;
+}
+
+@keyframes bgMove{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-80px);
+    }
+}
+
+
+.page5-mirror{
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+  opacity: 0.75;
+  mix-blend-mode: hard-light;
+   animation: mirrorMove linear both;
+    animation-timeline: --page5;
+    animation-range: entry 0% cover 100%;
+}
+
+@keyframes mirrorMove{
+    from{
+        transform:translate(-50%,-50%) translateY(0);
+    }
+    to{
+        transform:translate(-50%,-50%) translateY(-120px);
+    }
+}
+
+.page5-swirl{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 45%;
+  height: auto;
+  object-fit: contain;
+  z-index: 3;
+  animation: swirlMove linear both;
+    animation-timeline: --page5;
+    animation-range: entry 0% cover 100%;
+}
+
+@keyframes swirlMove{
+    from{
+        transform:translate(-50%,-50%);
+    }
+    to{
+        transform:translate(-50%,-50%) translateY(-250px);
+    }
+}
+
+.page5-flower1{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10%;
+  height: auto;
+  object-fit: contain;
+  z-index: 3;
+  animation: flower1Move linear both;
+    animation-timeline: --page5;
+}
+
+@keyframes flower1Move{
+    from{
+        transform:translate(-50%,-50%) translateY(230px) scale(1);
+    }
+    to{
+        transform:translate(-50%,-50%) translateY(-500px) scale(1.2);
+    }
+}
+
+.page5-flower2{
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  height: auto;
+  object-fit: contain;
+  z-index: 3;
+  animation: flower2Move both ease-out;
+    animation-timeline: --page5;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+@keyframes flower2Move{
+    from{
+        transform:translate(-50%,-50%) translateY(200px) scale(0.9);
+    }
+    to{
+        transform:translate(-50%,-50%) translateY(-300px) scale(1.15);
+    }
+}
+
+.page5-head{
+  position: absolute;
+  left: 51%;
+  top: 115%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: auto;
+  object-fit: contain;
+  z-index: 4;
+  animation: headMove linear both;
+    animation-timeline: --page5;
+}
+
+@keyframes headMove{
+    from{
+        transform:translate(-50%,-50%) translateY(180px);
+    }
+    to{
+        transform:translate(-50%,-50%) translateY(-400px);
+    }
+}
+
+.page5-branch{
+  position: absolute;
+  left: 52%;
+  top: 115%;
+  transform: translate(-50%, -50%);
+  width: 13%;
+  height: auto;
+  object-fit: contain;
+  z-index: 5;
+  animation: branchMove linear both;
+    animation-timeline: --page5;
+}
+
+@keyframes branchMove{
+    from{
+        transform:translate(-50%,-50%) translateY(300px);
+    }
+    to{
+        transform:translate(-50%,-50%) translateY(-450px);
+    }
+}
+
+.page5-texture{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: auto;
+  object-fit: contain;
+  z-index: 7;
+  mix-blend-mode: multiply;
+  animation: textureFade both cubic-bezier(.7,0,.95,1);
+    animation-timeline: --page5;
+    animation-range: entry 0% cover 100%;
+}
+
+@keyframes textureFade{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+/*=========== TRANSITION PAGE 5 and PAGE 6===========*/
+.page5-page6{
+    position: relative;
+    height: 500vh;    
+    overflow: visible;
+
+    view-timeline-name: --scene2;
+    view-timeline-axis: block;
+}
+
+.flower-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.flower-layer.is-fixed {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.page5-flower-layer-left{
+  position: absolute;
+  left: 15%;
+  top: 90%;
+  width: 30%;
+  height: auto;
+  object-fit: contain;
+  z-index: 20;
+  mix-blend-mode: hard-light;
+  opacity: 0.75;
+  filter:
+        grayscale(var(--fl-left-grayscale,0))
+        brightness(var(--fl-left-brightness,1))
+        contrast(var(--fl-left-contrast,1));
+  animation: frontLeftMove linear both;
+  animation-timeline: --scene2;
+  animation-range: entry 0% cover 100%;
+}
+
+@keyframes frontLeftMove{
+  from{ transform:translateY(500px) rotate(12deg); }
+  to{ transform:translateY(-500px) rotate(0deg); }
+}
+
+.page5-flower-layer-right{
+  position: absolute;
+  right: 15%;
+  top: 90%;
+  width: 30%;
+  height: auto;
+  object-fit: contain;
+  z-index: 20;
+  mix-blend-mode: var(--flower-layer-blend-mode, hard-light);
+  opacity: 0.75;
+  animation: frontRight linear both;
+    animation-timeline: --scene2;
+    animation-range: entry 0% cover 100%;
+}
+
+@keyframes frontRight{
+    from{
+        transform:translateY(500px) rotate(-12deg);
+    }
+    to{
+        transform:translateY(-500px) rotate(0deg);
+    }
+}
+
+
+
+/*===========PAGE 6===========*/
+
+.text-page6{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    
+}
+
+.text-page6 img{
+    position: absolute;
+    pointer-events: auto;
+    animation-name: textFadeInOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timeline: --page6;
+    animation-range: entry 0% exit 100%;
+    animation-timing-function: linear;
+}
+
+.text-page6-1{
+    left: 5vw; top: 5vh; width: 20vw;
+    animation-range: entry 20% exit 60%;
+}
+.text-page6-2{
+    right: 5vw; top: 25vh; width: 20vw;
+    animation-range: entry 15% exit 70%;;
+}
+
+.text-page6-3{
+    left: 35vw; bottom: 0vh; width: 30vw;
+    animation-range: entry 20% exit 80%;;
+}
+
+.text-page6-1:hover, .text-page6-2:hover, .text-page6-3:hover {
+    filter: brightness(250%) blur(1px);
+}
+
+.page6::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.9) 8%,
+    rgba(0,0,0,0.45) 16%,
+    rgba(0,0,0,0) 24%
+  );
+
+  opacity: var(--page6-grad-opacity, 1);
+  will-change: opacity;
+}
+
+.page6 {
+  background: #000000;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+  isolation: isolate;
+    view-timeline-name: --page6;
+    view-timeline-axis: block;
+}
+.page6-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+}
+.page6-layer1{
+  position: absolute;
+  left: 51%;
+  top: 33%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+  mix-blend-mode: hard-light;
+}
+.page6-layer2{
+  position: absolute;
+  left: 51%;
+  top: 33%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  height: auto;
+  object-fit: cover;
+  z-index: 2;
+
+  transition:
+        -webkit-mask-position .05s linear,
+        transform .15s ease;
+
+    --mx:50%;
+    --my:50%;
+
+    -webkit-mask-image:
+        radial-gradient(
+            circle 130px at var(--mx) var(--my),
+            black 0,
+            black 65px,
+            transparent 130px
+        );
+
+    mask-image:
+        radial-gradient(
+            circle 130px at var(--mx) var(--my),
+            black 0,
+            black 65px,
+            transparent 130px
+        );
+
+    pointer-events:none;
+}
+
+
+
+/*===========PAGE 7 and 8===========*/
+
+.text-page7{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    
+}
+
+.text-page7 img{
+    position: absolute;
+    pointer-events: auto;
+    animation-name: textFadeInOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timeline: --page7;
+    animation-timing-function: linear;
+}
+
+@keyframes textFadeInOut {
+    0%   { opacity: 0; transform: translateY(0px); }
+    50%  { opacity: 1; transform: translateY(-30px); }
+    100% { opacity: 0; transform: translateY(-60px); }
+}
+
+.text-page7-1{
+    left: 25vw; top: 20vh; width: 25vw;
+    animation-range: contain 0% contain 20%;
+}
+.text-page7-2{
+    left: 43vw; top: 45vh; width: 25vw;
+    animation-range: contain 5% contain 30%;
+}
+
+.text-page7 .text-page7-3{
+    right: 20vw; top: 15vh; width: 25vw;
+    animation-name: textFadeInOut;
+    animation-range: contain 30% contain 45%;
+}
+
+.text-page7 .text-page7-4{
+    right: 30vw; top: 50vh; width: 30vw;
+    animation-range: contain 35% contain 50%;
+}
+
+.text-page7-1:hover, .text-page7-2:hover, .text-page7-3:hover, .text-page7-4:hover {
+    filter: brightness(250%) blur(1px);
+}
+
+.page7::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 55%,
+    rgba(0,0,0,0.85) 80%,
+    rgba(0,0,0,0) 100%
+  );
+
+  opacity: 1;
+
+  animation: page7FromBlack linear both;
+  animation-timeline: --page7;
+  animation-range: entry 0% entry 100%;
+}
+
+@keyframes page7FromBlack {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.page7 {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  overflow: visible;  
+    view-timeline-name: --page7;
+    view-timeline-axis: block;
+}
+
+.page7-sticky{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+}
+.page7-content{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:300vh;
+animation: sceneMove linear both;
+    animation-timeline: --page7;
+    animation-range: entry 0% cover 100%;
+}
+
+@keyframes sceneMove{
+
+    from{
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+    to{
+        transform:
+            scale(1.04)
+            translateY(-2%);
+    }
+}
+
+
+.page7-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+  filter: saturate(0.75);
+}
+.page7-flower{
+  position: absolute;
+  right: 0;
+  top: 5%;
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+  mix-blend-mode: color-burn;
+  filter: saturate(0) contrast(1.2);
+transform-origin:left center;
+
+    animation: flowerMove linear both;
+    animation-timeline: --page7;
+}
+
+@keyframes flowerMove{
+
+    from{
+        transform:
+            rotate(-3deg)
+            scale(1);
+    }
+
+    to{
+        transform:
+            rotate(4deg)
+            scale(1.03);
+    }
+}
+.page7-flower2{
+  position: absolute;
+  left: 0;
+  top: 15%;
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+.page7-highheel{
+  position: absolute;
+  left: 10%;
+  top: 0;
+  width: 20%;
+  height: auto;
+  object-fit: cover;
+  z-index: 2;
+  filter: brightness(1) drop-shadow(0 0 10px rgba(255,255,255,.25));
+  transition:
+        filter .4s ease,
+        opacity .35s ease,
+        transform .35s ease;
+transform-origin:bottom center;
+
+    animation: heelSwing linear both;
+    animation-timeline: --page7;
+}
+
+@keyframes heelSwing{
+
+    from{
+        transform:rotate(-2deg);
+    }
+
+    to{
+        transform:rotate(2deg);
+    }
+}
+.page7-highheel:hover{
+    mix-blend-mode: color-dodge;
+    filter:
+        drop-shadow(0 0 20px rgba(255,255,255,.5));
+}
+
+.page7-shoes{
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  z-index: 3;
+  transition:
+        filter .35s ease,
+        opacity .35s ease,
+        transform .35s ease;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,.25));
+ animation: shoesFloat linear both;
+    animation-timeline: --page7;
+}
+
+@keyframes shoesFloat{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-25px);
+    }
+}
+.page7-shoes:hover{
+    mix-blend-mode: color-dodge;
+    filter:
+        drop-shadow(0 0 20px rgba(255,255,255,.45));
+}
+
+
+.page7-texture{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  z-index: 4;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+
+/*===========PAGE 9===========*/
+
+.text-page9{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    
+}
+
+.text-page9 img{
+    position: absolute;
+    pointer-events: auto;
+    animation-name: textFadeInOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timeline: --page9;
+    animation-timing-function: linear;
+}
+
+@keyframes textFadeInOut {
+    0%   { opacity: 0; transform: translateY(0px); }
+    50%  { opacity: 1; transform: translateY(-30px); }
+    100% { opacity: 0; transform: translateY(-60px); }
+}
+
+.text-page9-1{
+    left: 12vw; top: 20vh; width: 20vw;
+    animation-range: entry 0% exit 50%;
+}
+
+.text-page9-1:hover {
+    filter: brightness(250%) blur(1px);
+}
+
+.page9 {
+  position: relative;
+  width: 100%;
+  height: 300vh;
+  overflow: visible;
+  isolation: isolate;
+  margin-top: -100vh; 
+  z-index: 10;
+    view-timeline-name: --page9;
+    view-timeline-axis:block;
+}
+
+.page9-sticky{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    will-change: opacity;
+}
+
+.page9-sticky.is-fixed{
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.page9-sticky.is-visible{
+    pointer-events: auto;
+}
+
+.page9-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+}
+.page9-window{
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+will-change: transform;
+
+  animation: page9-window-grow linear both;
+  animation-timeline: --page9;
+  animation-range: entry 50% exit 100%;
+}
+
+@keyframes page9-window-grow {
+  from {
+    transform: translate(-50%, -50%) translateX(0) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) translateX(-40%) scale(3.5);
+  }
+}
+
+.page9-texture{
+  position: absolute;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+.page9-whiteout {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  will-change: opacity;
+  /* no CSS animation/timeline — JS drives opacity every scroll frame for accuracy */
+}
+
+
+/*===========PAGE 10===========*/
+
+.text-page10{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    pointer-events: none;
+    
+}
+
+.text-page10 img{
+    position: absolute;
+    pointer-events: auto;
+    animation-name: textFadeInOut;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timeline: --page10;
+    animation-timing-function: linear;
+}
+
+@keyframes textFadeInOut {
+    0%   { opacity: 0; transform: translateY(0px); }
+    50%  { opacity: 1; transform: translateY(-30px); }
+    100% { opacity: 0; transform: translateY(-60px); }
+}
+
+.text-page10-1{
+    left: 12vw; top: 20vh; width: 25vw;
+    animation-range: entry 20% exit 40%;
+}
+
+.text-page10-2{
+    left: 25vw; top: 55vh; width: 25vw;
+    animation-range: entry 35% exit 50%;
+}
+
+.text-page10-1:hover, .text-page10-2:hover {
+    filter: brightness(250%) blur(1px);
+}
+
+.page10 {
+  position: relative;
+  width: 100%;
+  height: 250vh;
+  margin-top: -100vh;
+  z-index: 11;
+  overflow: visible;
+  isolation: isolate;
+    view-timeline-name: --page10;
+    view-timeline-axis: block;
+}
+
+.page10-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.page10-sticky.is-fixed {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.page10-sticky.is-visible {
+  pointer-events: auto;
+}
+
+.page10-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  object-position: 50% 100%; 
+  animation: page10-bg-pan linear both;
+  animation-timeline: --page10;
+  animation-range: entry 0% exit 100%;
+}
+
+@keyframes page10-bg-pan {
+  from {
+    object-position: 50% 100%; 
+  }
+  to {
+    object-position: 50% 0%;   
+  }
+}
+
+.page-end-blackout {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9998; /* below the cursor (2147483647), above everything else */
+  will-change: opacity;
+}

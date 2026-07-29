@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Interactive A1</title>
+    <link href="style.css" rel="stylesheet">
+    <style type="text/css">
+        @font-face {
+            font-family: 'AppleGaramond';
+            src: url('Asset/AppleGaramond.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'MonsieurLaDoulaise';
+            src: url('Asset/MonsieurLaDoulaise.ttf') format('truetype');
+        }
+    </style>
+
+</head>
+
+<body>
+  
+
+    <button class="sound-button" type="button" aria-label="Toggle sound" aria-pressed="false">
+        <span class="sound-label">sound</span>
+        <img class="top-img" src="Asset/butterfly1.png" alt="Sound off">
+        <img class="bottom-img" src="Asset/butterfly2.png" alt="Sound on">
+    </button>
+    <audio id="soundtrack" src="Asset/soundtrack.mp3" loop></audio>
+    <audio id="envelopeSound" src="Asset/sound-paper.mp3" preload="auto"></audio>
+    <audio id="birdSound" src="Asset/sound-bird.mp3" preload="auto"></audio>
+
+
+
+
+    <section class="title-page">
+        <div class="title-page-wrapper">
+            <img class="title-image" src="Asset/title2.png" alt="Interactive A1 title">
+            <img class="title-layer title-layer1" src="Asset/title-layer1.png" alt="Title layer 1">
+            <img class="title-layer title-layer2" src="Asset/title-layer2.png" alt="Title layer 2">
+            <img class="text-ani text-ani1" src="Asset/text-ani1.png" alt="Text animation 1">
+            <img class="text-ani text-ani2" src="Asset/text-ani2.png" alt="Text animation 2">
+        </div>
+    </section>
+
+    <section class="page1">
+    <div class="page1-sticky">
+        <div class="page1-bg" aria-hidden="true"></div>
+        <img class="page1-window" src="Asset/page1-window.png" alt="Page 1 window">
+        <img class="page1-hole" src="Asset/page1-hole.png" alt="Page 1 hole">
+        
+        <video class="page1-video video-a" autoplay muted playsinline preload="auto">
+            <source src="Asset/page1-video.mp4" type="video/mp4">
+        </video>
+        <video class="page1-video video-b" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+
+        <div class="text-page1">
+            <img class="text-page1-1" src="Asset/text/Asset 1.png" alt="Text page 1-1">
+            <img class="text-page1-2" src="Asset/text/Asset 2.png" alt="Text page 1-2">
+            <img class="text-page1-3" src="Asset/text/Asset 3.png" alt="Text page 1-3">
+        </div>
+    </div>
+    </section>
+
+    <section class="page2">
+        <div class="page2-sticky">
+            <img class="page2-bg" src="Asset/page2-bg.png" alt="Page 2 background">
+            <img class="page2-sakura-frame" src="Asset/page2-sakura-frame.png" alt="Page 2 sakura frame">
+            <img class="page2-envelope1" src="Asset/page2-envelope1.png" alt="Page 2 envelope 1">
+            <img class="page2-envelope2" src="Asset/page2-envelope2.png" alt="Page 2 envelope 2">
+            <img class="page2-petal" src="Asset/page2-petal.png" alt="Page 2 petal">
+            <img class="page2-layer" src="Asset/page2-layer.png" alt="Page 2 layer">
+            <img class="page2-texture" src="Asset/page2-texture.png" alt="Page 2 texture">
+
+            <div class="text-page2">
+                <img class="text-page2-1" src="Asset/text/Asset 4.png" alt="Text page 2-1">
+                <img class="text-page2-2" src="Asset/text/Asset 5.png" alt="Text page 2-2">
+                <img class="text-page2-3" src="Asset/text/Asset 6.svg" alt="Text page 2-3">
+            </div>
+        </div>
+    </section>
+
+    <section class="page3">
+        <div class="page3-sticky">
+            <video class="page3-video" autoplay muted playsinline preload="auto" loop>
+                    <source src="Asset/page3-video.mp4" type="video/mp4">
+            </video>
+            <img class="page3-wave1" src="Asset/page3-wave1.png" alt="Page 3 wave 1">
+            <img class="page3-wave2" src="Asset/page3-wave2.png" alt="Page 3 wave 2">
+
+            <div class="text-page3">
+                <img class="text-page3-1" src="Asset/text/Asset 7.png" alt="Text page 3-1">
+                <img class="text-page3-2" src="Asset/text/Asset 8.png" alt="Text page 3-2">
+                <img class="text-page3-3" src="Asset/text/Asset 9.png" alt="Text page 3-3">
+                <img class="text-page3-4" src="Asset/text/Asset 10.png" alt="Text page 3-4">
+                
+                <img class="text-page3-5" src="Asset/text/Asset 11.png" alt="Text page 3-5">
+                <img class="text-page3-6" src="Asset/text/Asset 12.png" alt="Text page 3-6">
+                <img class="text-page3-7" src="Asset/text/Asset 13.png" alt="Text page 3-7">
+                <img class="text-page3-8" src="Asset/text/Asset 14.png" alt="Text page 3-8">
+            </div>
+        </div>
+    </section>
+
+    <section class="page5-page6">
+        <div class="flower-layer">
+            <img class="page5-flower-layer-left" src="Asset/page5-flower-layer-left.png" alt="Page 5 flower layer left">
+            <img class="page5-flower-layer-right" src="Asset/page5-flower-layer-right.png" alt="Page 5 flower layer right">
+        </div>
+        
+    <section class="page5">
+       <div class="page5-sticky">
+            <img class="page5-bg" src="Asset/page5-bg.png" alt="Page 5 background">
+            <img class="page5-mirror" src="Asset/page5-mirror.png" alt="Page 5 mirror">
+            <img class="page5-swirl" src="Asset/page5-swirl.png" alt="Page 5 swirl">
+            <img class="page5-flower1" src="Asset/page5-flower1.png" alt="Page 5 flower 1">
+            <img class="page5-flower2" src="Asset/page5-flower2.png" alt="Page 5 flower 2">
+            <img class="page5-head" src="Asset/page5-head.png" alt="Page 5 head">
+            <img class="page5-branch" src="Asset/page5-branch.png" alt="Page 5 branch">
+            <img class="page5-texture" src="Asset/page5-texture.png" alt="Page 5 texture">
+
+            <div class="text-page5">
+                <img class="text-page5-1" src="Asset/text/Asset 15.png" alt="Text page 5-1">
+                <img class="text-page5-2" src="Asset/text/Asset 16.png" alt="Text page 5-2">
+                <img class="text-page5-3" src="Asset/text/Asset 17.png" alt="Text page 5-3">
+
+                <img class="text-page5-4" src="Asset/text/Asset 18.png" alt="Text page 5-4">
+                <img class="text-page5-5" src="Asset/text/Asset 19.png" alt="Text page 5-5">
+                <img class="text-page5-6" src="Asset/text/Asset 20.png" alt="Text page 5-6">
+                <img class="text-page5-7" src="Asset/text/Asset 21.png" alt="Text page 5-7">
+            </div>
+        </div>
+    </section>
+
+    <section class="page6">
+        <div class="page6-sticky">
+            <img class="page6-bg" src="Asset/page6-bg.png" alt="Page 6 background">
+            <img class="page6-layer1" src="Asset/page6-layer1.png" alt="Page 6 layer 1">
+            <img class="page6-layer2" src="Asset/page6-layer2.png" alt="Page 6 layer 2">
+
+            <div class="text-page6">
+                <img class="text-page6-1" src="Asset/text/Asset 22.png" alt="Text page 6-1">
+                <img class="text-page6-2" src="Asset/text/Asset 23.png" alt="Text page 6-2">
+                <img class="text-page6-3" src="Asset/text/Asset 24.png" alt="Text page 6-3">
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section class="page7">
+        <div class="page7-sticky">
+            <div class="page7-content">
+                    <img class="page7-bg" src="Asset/page7-bg.png" alt="Page 7 background">
+                    <img class="page7-flower" src="Asset/page7-flower.png" alt="Page 7 flower">
+                    <img class="page7-flower2" src="Asset/page7-flower2.png" alt="Page 7 flower 2">
+                    <img class="page7-highheel" src="Asset/page7-highheel.png" alt="Page 7 high heel">
+                    <img class="page7-shoes" src="Asset/page7-shoes.png" alt="Page 7 shoes">
+                    <img class="page7-texture" src="Asset/page7-texture.png" alt="Page 7 texture">
+            </div>
+            <div class="text-page7">
+                <img class="text-page7-1" src="Asset/text/Asset 25.png" alt="Text page 7-1">
+                <img class="text-page7-2" src="Asset/text/Asset 26.png" alt="Text page 7-2">
+                <img class="text-page7-3" src="Asset/text/Asset 27.png" alt="Text page 7-3">
+                <img class="text-page7-4" src="Asset/text/Asset 28.png" alt="Text page 7-4">
+            </div>
+        </div>
+    </section>
+
+    <section class="page9">
+        <div class="page9-sticky">
+            <div class="page9-content">
+                <img class="page9-bg" src="Asset/page9-bg.png" alt="Page 9 background">
+                <img class="page9-window" src="Asset/page9-window.png" alt="Page 9 window">
+                <img class="page9-texture" src="Asset/page9-texture.png" alt="Page 9 texture">
+            </div>
+            <div class="text-page9">
+                <img class="text-page9-1" src="Asset/text/Asset 29.png" alt="Text page 9-1">
+            </div>
+        </div>
+        <div class="page9-whiteout-layer">
+                <div class="page9-whiteout"></div>
+        </div>
+    </section>
+
+    <section class="page10">
+        <div class="page10-sticky">
+            <div class="page10-content">
+                <img class="page10-bg" src="Asset/page10-bg.png" alt="Page 10 text">
+            </div>
+            <div class="text-page10">
+                <img class="text-page10-1" src="Asset/text/Asset 30.png" alt="Text page 10-1">
+                <img class="text-page10-2" src="Asset/text/Asset 31.png" alt="Text page 10-2">
+            </div>
+        </div>
+    </section>
+
+
+    <div class="page-end-blackout"></div>
+
+    <div class="custom-cursor">
+    <img src="Asset/cursor.svg" class="cursor-img">
+    </div>
+
+    <script>
+
+    // ===========TITLE PAGE===========
+
+
+                (function () {
+        const layers = [
+            { selector: '.text-ani',     speed: 0.45, fade: true },
+            { selector: '.title-layer1', speed: 0.25, fade: false },
+            { selector: '.title-layer2', speed: 0.12, fade: false },
+        ];
+
+        const items = layers.flatMap(({ selector, speed, fade }) =>
+            Array.from(document.querySelectorAll(selector)).map(el => ({ el, speed, fade }))
+        );
+
+        // How much scroll (in px) it takes to go from fade=0 to fade=1
+        const FADE_DISTANCE = 400;
+
+        let ticking = false;
+
+        function updateParallax() {
+            const scrollY = window.scrollY;
+
+            items.forEach(({ el, speed, fade }) => {
+            const rect = el.closest('.title-page')?.getBoundingClientRect();
+            const inView = !rect || (rect.bottom > 0 && rect.top < window.innerHeight);
+
+            if (inView) {
+                const offset = -(scrollY * speed);
+                el.style.setProperty('--parallax-y', `${offset}px`);
+
+                if (fade) {
+                    const progress = Math.min(scrollY / FADE_DISTANCE, 1); // 0 → 1
+                    el.style.setProperty('--scroll-fade', progress.toFixed(3));
+
+                    // Only make text-ani1 hoverable once it's actually visible
+                    el.classList.toggle('is-revealed', progress > 0.05);
+                }
+            }
+        });
+
+            ticking = false;
+        }
+
+        function onScroll() {
+            if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        updateParallax();
+        })();
+
+
+
+        // ===========SOUND BUTTON===========
+
+
+        const soundButton = document.querySelector('.sound-button');
+        const soundtrack = document.getElementById('soundtrack');
+        const page1 = document.querySelector('.page1');
+
+
+        if (soundButton && soundtrack) {
+            soundButton.addEventListener('click', () => {
+                const isEnabled = soundButton.classList.toggle('enabled');
+                soundButton.setAttribute('aria-pressed', isEnabled ? 'true' : 'false');
+
+                if (isEnabled) {
+                    soundtrack.play().catch(() => {});
+                } else {
+                    soundtrack.pause();
+                }
+            });
+        }
+
+
+
+
+        // ===========PAGE 1 VIDEO CROSSFADE===========
+
+
+        const videoA = document.querySelector('.page1-video.video-a');
+        const videoB = document.querySelector('.page1-video.video-b');
+        if (videoA && videoB) {
+            const src = videoA.querySelector('source')?.src || 'Asset/page1-video.mp4';
+            const sourceB = document.createElement('source');
+            sourceB.src = src;
+            sourceB.type = 'video/mp4';
+            videoB.appendChild(sourceB);
+
+            let activeVideo = videoA;
+            let standbyVideo = videoB;
+            let isCrossfading = false;
+            const CROSSFADE = 0.6;
+            const START_OFFSET = 0.03;
+
+            try {
+                videoA.loop = false;
+                videoB.loop = false;
+            } catch (e) {}
+
+            videoA.style.opacity = 0.75;
+            videoB.style.opacity = 0;
+
+            function startCrossfade(currentVideo) {
+                if (isCrossfading || currentVideo !== activeVideo) return;
+                if (!currentVideo.duration) return;
+
+                isCrossfading = true;
+
+                try {
+                    standbyVideo.currentTime = START_OFFSET;
+                    standbyVideo.play().catch(() => {});
+                    standbyVideo.style.transition = `opacity ${CROSSFADE}s linear`;
+                    activeVideo.style.transition = `opacity ${CROSSFADE}s linear`;
+                    standbyVideo.style.opacity = 0.75;
+                    activeVideo.style.opacity = 0;
+                } catch (e) {}
+
+                setTimeout(() => {
+                    try {
+                        activeVideo.pause();
+                        activeVideo.currentTime = START_OFFSET;
+                    } catch (e) {}
+
+                    [activeVideo, standbyVideo] = [standbyVideo, activeVideo];
+                    isCrossfading = false;
+                }, CROSSFADE * 1000 + 40);
+            }
+
+            function attachLoopHandlers(video) {
+                video.addEventListener('timeupdate', () => {
+                    if (!video.duration || video.seeking || isCrossfading || video !== activeVideo) return;
+                    if (video.duration - video.currentTime <= CROSSFADE + 0.02) {
+                        startCrossfade(video);
+                    }
+                });
+
+                video.addEventListener('ended', () => {
+                    if (video === activeVideo) {
+                        startCrossfade(video);
+                    }
+                });
+            }
+
+            attachLoopHandlers(videoA);
+            attachLoopHandlers(videoB);
+
+            [videoA, videoB].forEach(v => v.addEventListener('loadedmetadata', () => v.play().catch(() => {})));
+        }
+        
+
+        // ===========CURSOR===========
+
+
+        const page1Section = document.querySelector(".page1");
+        const page1Sticky = document.querySelector(".page1-sticky");
+        const page2Section = document.querySelector(".page2");
+        const page2Envelope1 = document.querySelector(".page2-envelope1");
+        const page2Envelope2 = document.querySelector(".page2-envelope2");
+        const page1Bg = document.querySelector(".page1-bg");
+        const page1Window = document.querySelector(".page1-window");
+            const birdSound = document.getElementById("birdSound");
+
+            if (page1Window && birdSound) {
+                page1Window.addEventListener("mouseenter", () => {
+                    birdSound.currentTime = 0;
+                    birdSound.play().catch(() => {});
+                });
+            }
+        const page1Hole = document.querySelector(".page1-hole");
+        const page1Videos = document.querySelectorAll(".page1-video");
+        const title = document.querySelector(".title-page");
+        const page5Section = document.querySelector(".page5");
+        const page5Page6Section = document.querySelector(".page5-page6");
+        const page5Sticky = document.querySelector(".page5-sticky");
+        const page6Section = document.querySelector(".page6");
+        const page6Sticky = document.querySelector(".page6-sticky");
+        const flowerLayer = document.querySelector(".flower-layer");
+
+        const customCursor = document.querySelector('.custom-cursor');
+        const interactiveElements = document.querySelectorAll(
+    'button, a, input, textarea, select, ' +
+    '.sound-button, .page2-envelope1, .page2-petal, .text-ani1, ' +
+    '.page1-window, .page1-hole, .page1-video, ' +
+    '.text-page1 img, .text-page2 img, .text-page3 img, ' +
+    '.text-page5 img, .text-page6 img, .text-page7 img, ' +
+    '.text-page9 img, .text-page10 img, ' +
+    '.page7-highheel, .page7-shoes'
+);
+
+        if (customCursor) {
+            window.addEventListener('mousemove', (event) => {
+                customCursor.classList.add('is-visible');
+                customCursor.style.left = `${event.clientX}px`;
+                customCursor.style.top = `${event.clientY}px`;
+            });
+
+            window.addEventListener('mouseleave', () => {
+                customCursor.classList.remove('is-visible');
+            });
+
+            interactiveElements.forEach((element) => {
+                element.addEventListener('mouseenter', () => customCursor.classList.add('is-hover'));
+                element.addEventListener('mouseleave', () => customCursor.classList.remove('is-hover'));
+            });
+        }
+
+
+        // ===========PAGE 2===========
+
+
+        const envelopeSound = document.getElementById("envelopeSound");
+
+if (page2Envelope1 && page2Envelope2) {
+    page2Envelope1.setAttribute("role", "button");
+    page2Envelope1.setAttribute("tabindex", "0");
+
+    const revealEnvelope2 = () => {
+        page2Envelope1.classList.add("is-hidden");
+        page2Envelope2.classList.add("is-visible");
+
+        if (envelopeSound) {
+            envelopeSound.currentTime = 0;
+            envelopeSound.play().catch(() => {});
+        }
+    };
+
+    page2Envelope1.addEventListener("click", revealEnvelope2);
+    page2Envelope1.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            revealEnvelope2();
+        }
+    });
+}
+        
+
+        function animatePage1() {
+            if (!page1Section || !page1Sticky || !page2Section || !page1Bg || !page1Window || !page1Hole || !title) return;
+
+            const rect = page1Section.getBoundingClientRect();
+            const h = window.innerHeight;
+
+            let progress = (h - rect.top) / (h * 0.8);
+            progress = Math.max(0, Math.min(progress, 1));
+
+            // Drive the bottom-up gradient mask as page1 approaches/enters view
+            title.style.setProperty('--mask-reach', progress.toFixed(3));
+
+            const overlapStart = 0.15;
+            const overlapEnd = 0.75;
+            const overlap = Math.max(0, Math.min((progress - overlapStart) / (overlapEnd - overlapStart), 1));
+
+            const titleOpacity = Math.max(0, 1 - overlap * 0.10);
+            const pageOpacity = Math.max(0, overlap * 0.9);
+
+            title.style.setProperty('--title-fade', titleOpacity.toFixed(3));
+            title.style.opacity = titleOpacity;
+            page1Section.style.opacity = pageOpacity;
+
+            // background
+            const bg = Math.max(0, Math.min(pageOpacity, 1));
+            page1Bg.style.opacity = 0.15 + bg * 0.85;
+            page1Bg.style.transform = `translateY(${80 - bg * 80}px)`;
+
+            // video
+            page1Videos.forEach(v => {
+                v.style.opacity = 0.08 + bg * 0.67;
+                v.style.transform = `translateY(${80 - bg * 80}px)`;
+            });
+
+            // Keep Page 1 pinned while the hole shrinks, then dissolve it into Page 2.
+            const scrollDistance = Math.max(1, rect.height - h);
+            const holeProgress = Math.max(0, Math.min(1, -rect.top / scrollDistance));
+            const holeReveal = Math.max(0, Math.min(1, (holeProgress - 0.45) / 0.27));
+            const page2Reveal = Math.max(0, Math.min(1, (holeProgress - 0.75) / 0.25));
+            
+            // window
+            page1Window.style.opacity = 0.1 + bg * 0.9;
+
+            const windowOffset = 80 - bg * 80;
+
+            // Scale from 1 → 0.7 as you scroll
+            const scale = 1 - holeProgress * 0.3;
+
+            page1Window.style.transform =
+                `translate(-50%, calc(-50% + ${windowOffset}px)) scale(${scale})`;
+
+            
+            // Ease the crossfade so all Page 1 layers dissolve gradually into Page 2.
+            const page2Fade = page2Reveal * page2Reveal * (3 - 2 * page2Reveal);
+            const page1Fade = 1 - page2Fade;
+            page1Sticky.style.opacity = page1Fade.toFixed(3);
+            page2Section.style.opacity = page2Fade.toFixed(3);
+            page2Section.style.transform = `translateY(${30 - page2Fade * 30}px)`;
+
+            // Keep each layer's relative look, then fade the full section as one block.
+            page1Bg.style.opacity = (0.15 + bg * 0.85).toFixed(3);
+            page1Videos.forEach(v => {
+                v.style.opacity = (0.08 + bg * 0.67).toFixed(3);
+            });
+            page1Window.style.opacity = (0.1 + bg * 0.9).toFixed(3);
+
+            page1Hole.style.width = `${1000 - 700 * holeReveal}%`;
+            page1Hole.style.opacity = (1 - page2Fade).toFixed(3);
+            page1Hole.style.transform = `translate(-50%, calc(-50% + ${windowOffset}px))`;
+        }
+
+        function updateFlowerLayerPin() {
+            if (!page5Page6Section || !flowerLayer) return;
+
+            const scrollY = window.scrollY || window.pageYOffset;
+            const sectionTop = page5Page6Section.getBoundingClientRect().top + scrollY;
+            const sectionBottom = sectionTop + page5Page6Section.offsetHeight;
+            const shouldPin = scrollY >= sectionTop && scrollY < sectionBottom;
+
+            flowerLayer.classList.toggle("is-fixed", shouldPin);
+        }
+
+        function updatePage5Mask() {
+            if (!page5Section || !page5Page6Section || !page5Sticky) return;
+
+            const scrollY = window.scrollY || window.pageYOffset;
+            const sectionTop = page5Page6Section.getBoundingClientRect().top + scrollY;
+            const sectionProgress = Math.max(0, Math.min((scrollY - sectionTop) / Math.max(1, page5Page6Section.offsetHeight - window.innerHeight), 1));
+            const maskStart = 0.64;
+            const maskEnd = 0.94;
+            const maskProgress = Math.max(0, Math.min((sectionProgress - maskStart) / (maskEnd - maskStart), 1));
+            const maskOpacity = maskProgress * maskProgress * (3 - 2 * maskProgress);
+
+            page5Sticky.style.setProperty("--page5-mask-opacity", maskOpacity.toFixed(3));
+        }
+
+        function updatePage6Mask() {
+    if (!page6Section || !page6Sticky) return;
+
+    const rect = page6Section.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    // 0 = page6 bottom just touching viewport bottom (about to enter)
+    // 1 = page6 top has reached viewport top (fully in view)
+    const enterProgress = Math.max(0, Math.min(1, (vh - rect.top) / vh));
+
+    // How long the gradient lingers after page6 is fully in view.
+    // Increase LINGER_VH to make it last longer.
+    const LINGER_VH = 0.6; // extra viewport-heights of scroll before fading starts
+    const scrolledPastEntry = Math.max(0, (-rect.top) / vh); // how far past full-entry we've scrolled
+    const lingerProgress = Math.min(1, scrolledPastEntry / LINGER_VH);
+
+    // Combine: fully opaque through entry AND through the linger window,
+    // then fade out over the following stretch.
+    const fadeOutProgress = enterProgress < 1 ? 0 : lingerProgress;
+    const eased = fadeOutProgress * fadeOutProgress * (3 - 2 * fadeOutProgress);
+    const gradOpacity = 1 - eased;
+
+    page6Section.style.setProperty("--page6-grad-opacity", gradOpacity.toFixed(3));
+
+    // ...keep existing --page6-mask-opacity logic below
+}
+
+const flowerLeftEl = document.querySelector(".page5-flower-layer-left");
+const flowerRightEl = document.querySelector(".page5-flower-layer-right");
+
+function updateFlowerLayerFade() {
+    if (!page6Section || !flowerLeftEl || !flowerRightEl) return;
+
+    const rect = page6Section.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    // 0 = page6 hasn't started entering yet, 1 = page6 has fully entered (top at viewport top)
+    const enterProgress = Math.max(0, Math.min(1, (vh - rect.top) / vh));
+
+    // Fade out once as page6 enters, then stay hidden (no fade back in later)
+    const opacity = 0.75 * (1 - enterProgress);
+
+    flowerLeftEl.style.opacity = opacity.toFixed(3);
+    flowerRightEl.style.opacity = opacity.toFixed(3);
+}
+
+
+function updateFlowerLeftFilter() {
+    if (!page5Page6Section || !flowerLeft) return;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+    const sectionTop = page5Page6Section.getBoundingClientRect().top + scrollY;
+    const sectionHeight = page5Page6Section.offsetHeight;
+    const vh = window.innerHeight;
+
+    // mirror your entry 0% / cover 100% range roughly:
+    // total scrollable span ≈ sectionHeight + vh
+    const progress = Math.max(0, Math.min(
+        (scrollY - (sectionTop - vh)) / (sectionHeight + vh),
+        1
+    ));
+
+    flowerLeft.style.setProperty('--fl-left-grayscale', `${(progress * 100).toFixed(1)}%`);
+    flowerLeft.style.setProperty('--fl-left-brightness', (1 - progress * 0.5).toFixed(3));
+    flowerLeft.style.setProperty('--fl-left-contrast', (1 - progress * 0.5).toFixed(3));
+}
+
+
+        const page6 = document.querySelector(".page6");
+const layer2 = document.querySelector(".page6-layer2");
+
+page6Section.addEventListener("mouseenter", () => {
+    customCursor.classList.add("is-hidden");
+});
+
+page6.addEventListener("mousemove", e => {
+
+    const rect = page6.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    layer2.style.setProperty("--mx", `${x}px`);
+    layer2.style.setProperty("--my", `${y}px`);
+});
+
+page6Section.addEventListener("mouseleave", () => {
+    customCursor.classList.remove("is-hidden");
+});
+
+
+const page9Section = document.querySelector(".page9");
+const page9Sticky = document.querySelector(".page9-sticky");
+
+function updatePage9Overlay() {
+    if (!page9Section || !page9Sticky) return;
+
+    const rect = page9Section.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    if (rect.top > 0) {
+        // Pre-arrival zone: page9 hasn't reached its native sticky pin yet.
+        // Force it into a fixed full-screen overlay — sitting directly on
+        // top of whatever's currently pinned (page7) — and fade opacity
+        // only. Nothing here ever moves.
+        const progress = Math.max(0, Math.min(1, (vh - rect.top) / vh));
+        const eased = progress * progress * (3 - 2 * progress); // smoothstep
+
+        page9Sticky.classList.add("is-fixed");
+        page9Sticky.style.opacity = eased.toFixed(3);
+        page9Sticky.classList.toggle("is-visible", eased > 0.05);
+    } else {
+        // page9 has reached its native sticky point — hand off seamlessly.
+        // Fixed(inset:0) and sticky(top:0, pinned) render identically here,
+        // so switching produces no visual jump.
+        page9Sticky.classList.remove("is-fixed");
+        page9Sticky.style.opacity = 1;
+        page9Sticky.classList.add("is-visible");
+    }
+}
+
+const page9Whiteout = document.querySelector(".page9-whiteout");
+
+function updatePage9Whiteout() {
+    if (!page9Section || !page9Whiteout) return;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+    const rect = page9Section.getBoundingClientRect();
+    const sectionTop = rect.top + scrollY;
+    const sectionHeight = page9Section.offsetHeight;
+    const vh = window.innerHeight;
+
+    // Distance page9 spends pinned while its content scrolls underneath
+    const scrollDistance = Math.max(1, sectionHeight - vh);
+    const progress = Math.max(0, Math.min(1, (scrollY - sectionTop) / scrollDistance));
+
+    // Fade to white over roughly the last quarter of page9's pinned scroll
+    const FADE_START = 0.75;
+    const FADE_END = 1.0;
+    const fadeProgress = Math.max(0, Math.min(1, (progress - FADE_START) / (FADE_END - FADE_START)));
+    const eased = fadeProgress * fadeProgress * (3 - 2 * fadeProgress); // smoothstep
+
+    page9Whiteout.style.opacity = eased.toFixed(3);
+}
+
+
+const page10Section = document.querySelector(".page10");
+const page10Sticky = document.querySelector(".page10-sticky");
+
+function updatePage10Overlay() {
+    if (!page10Section || !page10Sticky) return;
+
+    const rect = page10Section.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    if (rect.top > 0) {
+        // page10 hasn't reached its native sticky pin yet — hold it fixed
+        // full-screen on top of page9, fading opacity only, no movement.
+        const progress = Math.max(0, Math.min(1, (vh - rect.top) / vh));
+        const eased = progress * progress * (3 - 2 * progress); // smoothstep
+
+        page10Sticky.classList.add("is-fixed");
+        page10Sticky.style.opacity = eased.toFixed(3);
+        page10Sticky.classList.toggle("is-visible", eased > 0.05);
+    } else {
+        // reached native sticky point — hand off seamlessly, no visual jump
+        page10Sticky.classList.remove("is-fixed");
+        page10Sticky.style.opacity = 1;
+        page10Sticky.classList.add("is-visible");
+    }
+}
+
+const pageEndBlackout = document.querySelector(".page-end-blackout");
+
+function updateEndBlackout() {
+    if (!pageEndBlackout) return;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Fade in over the last 100vh of scrollable distance
+    const FADE_DISTANCE = window.innerHeight;
+    const progress = Math.max(0, Math.min(1, (scrollY - (maxScroll - FADE_DISTANCE)) / FADE_DISTANCE));
+    const eased = progress * progress * (3 - 2 * progress); // smoothstep
+
+    pageEndBlackout.style.opacity = eased.toFixed(3);
+    pageEndBlackout.style.pointerEvents = eased > 0.95 ? "auto" : "none";
+}
+
+
+        let ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    animatePage1();
+                    updateFlowerLayerPin();
+                    updatePage5Mask();
+                    updatePage6Mask();
+                    updateFlowerLayerFade(); 
+                    updatePage9Overlay();
+                    updatePage9Whiteout(); 
+                    updatePage10Overlay();
+                    updateEndBlackout();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        animatePage1();
+        updateFlowerLayerPin();
+        updatePage5Mask();
+        updatePage6Mask();
+        updateFlowerLayerFade();
+        updatePage9Overlay();
+        updatePage9Whiteout(); 
+        updatePage10Overlay();
+        updateEndBlackout();
+
+    </script>
+</body>
+</html>
